@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="202" height="20.645" viewBox="0 0 202 20.645">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffcb08;
+      }
+    </style>
+  </defs>
+  <title>arrow-main</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path class="cls-1" d="M202,14,186.842,1.037,185.4,8.775C116.883-3.779,76.8-3.01,1.608,12.033a2,2,0,1,0,.785,3.922C76.991,1.032,116.749.265,184.674,12.708L183.2,20.645Z"/>
+    </g>
+  </g>
+</svg>

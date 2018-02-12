@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21">
+  <g>
+    <g>
+      <g>
+        <path d="M9,3A6.007,6.007,0,0,0,3,9c0,3.245,1.209,4.4,2.093,5.249A2.045,2.045,0,0,1,6,16v1h6V16a2.045,2.045,0,0,1,.907-1.751C13.791,13.4,15,12.245,15,9A6.007,6.007,0,0,0,9,3Zm2.524,9.8A4,4,0,0,0,10,16H8a4,4,0,0,0-1.524-3.2C5.717,12.077,5,11.391,5,9a4,4,0,0,1,8,0C13,11.391,12.283,12.077,11.524,12.8Z"/>
+        <rect x="6" y="18" width="6" height="1"/>
+        <rect x="6" y="20" width="6" height="1"/>
+        <circle cx="9" cy="1" r="1"/>
+        <circle cx="3.343" cy="3.343" r="1" transform="translate(-1.385 3.343) rotate(-45)"/>
+        <circle cx="1" cy="9" r="1"/>
+        <circle cx="3.343" cy="14.657" r="1" transform="translate(-9.385 6.657) rotate(-44.999)"/>
+        <circle cx="14.657" cy="3.343" r="1" transform="translate(1.929 11.343) rotate(-45)"/>
+        <circle cx="17" cy="9" r="1"/>
+        <circle cx="14.657" cy="14.657" r="1" transform="translate(-6.071 14.656) rotate(-44.999)"/>
+      </g>
+    </g>
+  </g>
+</svg>

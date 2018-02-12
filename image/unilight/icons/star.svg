@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.021" height="18.09" viewBox="0 0 19.021 18.09">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f5c646;
+      }
+    </style>
+  </defs>
+  <title>star</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="Canvas">
+        <g id="Star">
+          <path id="path0_fill" data-name="path0 fill" class="cls-1" d="M9.511,0l2.351,6.764,7.159.146-5.706,4.326,2.074,6.854L9.511,14,3.633,18.09l2.074-6.854L0,6.91l7.159-.146Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

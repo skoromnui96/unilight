@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4f4f4f;
+      }
+    </style>
+  </defs>
+  <title>insta</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="Canvas">
+        <g id="_10" data-name=" 10">
+          <g id="Group">
+            <g id="Group-2" data-name="Group">
+              <g id="Group-3" data-name="Group">
+                <g id="Vector">
+                  <path id="path0_fill" data-name="path0 fill" class="cls-1" d="M25,28.524A3.515,3.515,0,1,0,21.483,25,3.526,3.526,0,0,0,25,28.524Z"/>
+                </g>
+                <g id="Vector-2" data-name="Vector">
+                  <path id="path1_fill" data-name="path1 fill" class="cls-1" d="M32.682,20.688V17.3H32.24l-2.95.009L29.3,20.7Z"/>
+                </g>
+                <g id="Vector-3" data-name="Vector">
+                  <path id="path2_fill" data-name="path2 fill" class="cls-1" d="M25,0A25,25,0,1,0,50,25,25.028,25.028,0,0,0,25,0ZM35,22.948v8.188A3.87,3.87,0,0,1,31.136,35H18.864A3.869,3.869,0,0,1,15,31.137V18.865A3.869,3.869,0,0,1,18.864,15H31.135A3.87,3.87,0,0,1,35,18.865Z"/>
+                </g>
+                <g id="Vector-4" data-name="Vector">
+                  <path id="path3_fill" data-name="path3 fill" class="cls-1" d="M30.47,25a5.47,5.47,0,1,1-10.538-2.052H16.946v8.188a1.916,1.916,0,0,0,1.917,1.915H31.133a1.917,1.917,0,0,0,1.917-1.915V22.949H30.063A5.4,5.4,0,0,1,30.47,25Z"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2a3138;
+      }
+    </style>
+  </defs>
+  <title>search</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path class="cls-1" d="M24,22.083l-5.76-5.76a10.192,10.192,0,1,0-1.917,1.917L22.083,24ZM1.355,10.165a8.81,8.81,0,1,1,8.81,8.81A8.82,8.82,0,0,1,1.355,10.165Z"/>
+    </g>
+  </g>
+</svg>

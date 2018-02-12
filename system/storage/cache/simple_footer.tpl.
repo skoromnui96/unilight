@@ -1,0 +1,10 @@
+
+                  <?php echo $content_bottom; ?>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <?php echo $column_right; ?></div>
+</div>
+<?php echo $footer; ?>

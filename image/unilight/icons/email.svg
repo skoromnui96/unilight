@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.8" height="12.002" viewBox="0 0 16.8 12.002">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffcb08;
+      }
+    </style>
+  </defs>
+  <title>email</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="Canvas">
+        <g id="_6" data-name=" 6">
+          <g id="Group">
+            <g id="Group-2" data-name="Group">
+              <g id="Vector">
+                <path id="path0_fill" data-name="path0 fill" class="cls-1" d="M1.332.709,7.383,5.6a1.518,1.518,0,0,0,1.02.3,1.514,1.514,0,0,0,1.019-.3L15.474.709c.485-.39.375-.709-.24-.709H1.574C.958,0,.848.319,1.332.709Z"/>
+              </g>
+              <g id="Vector-2" data-name="Vector">
+                <path id="path1_fill" data-name="path1 fill" class="cls-1" d="M15.907,2,9.295,7.124a1.579,1.579,0,0,1-1.788,0L.893,2C.4,1.622,0,1.825,0,2.454v8.406A1.135,1.135,0,0,0,1.12,12H15.68a1.135,1.135,0,0,0,1.12-1.143V2.454C16.8,1.825,16.4,1.622,15.907,2Z"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

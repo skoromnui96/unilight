@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20.003" viewBox="0 0 20 20.003">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffcb08;
+      }
+    </style>
+  </defs>
+  <title>lifecell</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path class="cls-1" d="M0,10.273A12.5,12.5,0,0,1,6.2,5.2,2.2,2.2,0,1,1,6.644,6.4a12.5,12.5,0,0,0-4.9,9.241,10,10,0,0,0,1.681,1.888,15,15,0,0,1,9.724-8.218,2.2,2.2,0,1,1,.527,1.391,12,12,0,0,0-6.741,8.815A10,10,0,1,0,0,10.273"/>
+    </g>
+  </g>
+</svg>

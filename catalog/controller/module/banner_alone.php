@@ -1,0 +1,42 @@
+<?php
+class ControllerModuleBannerAlone extends Controller {
+    public function index($setting) {
+        static $module = 0;
+
+        $this->load->model('design/banner');
+        $this->load->model('tool/image');
+
+        $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+        $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+
+        $this->load->language('module/banner_alone');
+        $data['description_alone'] = $this->language->get('description_alone');
+
+        $data['text_buyers'] = $this->language->get('text_buyers');
+        $data['text_more'] = $this->language->get('text_more');
+
+        $data['banners'] = array();
+
+        $results = $this->model_design_banner->getBanner($setting['banner_id']);
+
+        foreach ($results as $result) {
+            if (is_file(DIR_IMAGE . $result['image'])) {
+                $data['banners'][] = array(
+                    'title' => $result['title'],
+                    'link'  => $result['link'],
+                    'description'  => $result['description'],
+                    'video'  => $result['video'],
+                    'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+                );
+            }
+        }
+
+        $data['module'] = $module++;
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/banner_alone.tpl')) {
+            return $this->load->view($this->config->get('config_template') . '/template/module/banner_alone.tpl', $data);
+        } else {
+            return $this->load->view('default/template/module/banner_alone.tpl', $data);
+        }
+    }
+}

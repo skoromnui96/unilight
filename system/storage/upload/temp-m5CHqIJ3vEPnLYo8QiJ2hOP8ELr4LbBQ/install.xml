@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Turbo SMS fix for ocStore</name>
+    <code>Turbo SMS Fix</code>
+    <version>1.1.0</version>
+    <author>alexwaha</author>
+    <link>https://oc-help.com</link>
+    <file path="system/library/sms.php">
+        <operation>
+            <search><![CDATA[final class Sms]]></search>
+            <add position="replace"><![CDATA[final class Message]]>
+            </add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+            class SmsGate
+            ]]></search>
+            <add position="before"><![CDATA[
+class Sms{
+	public function make($gate, $options = array()){
+		return new Message($gate, $options);
+	}
+}
+            ]]>
+            </add>
+        </operation>
+    </file>
+</modification>

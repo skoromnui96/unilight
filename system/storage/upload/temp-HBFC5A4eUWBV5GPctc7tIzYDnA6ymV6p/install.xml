@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+  <code>Video_in_productcart_ocmod_2.1</code>
+  <name>Видео в карточке товара (в дополнительных изображениях)</name>
+  <version>1.0 Opencart 2.x</version>
+  <author>mazein</author>
+
+  <file path="admin/model/catalog/product.php">
+ 	<operation error="skip">
+		<search><![CDATA[public function getProducts($data = array()) {]]></search>
+		<add position="after"><![CDATA[$exist = $this->db->query("SHOW COLUMNS FROM `" . DB_PREFIX . "product_image` WHERE Field = 'video_in_product'");
+		if (count($exist->row) == 0) {
+		$this->db->query("ALTER TABLE `" . DB_PREFIX . "product_image` 
+		ADD COLUMN `video_in_product` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+		");
+		}]]></add>
+	</operation>
+	<operation error="skip">
+		<search><![CDATA[$this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");]]></search>
+		<add position="replace"><![CDATA[
+		//Видео
+				$img_video_in_product = "";
+				if (is_array($product_image['video_in_product']))
+				{
+					foreach ($product_image['video_in_product'] as $img_video_i  => $img_video_link)
+						$img_video_in_product = $img_video_in_product . '\r' . $img_video_i . '\n' . $img_video_link;
+				}
+				else
+					$img_video_in_product = $product_image['video_in_product'];
+		//Видео
+		$this->db->query("INSERT INTO " . DB_PREFIX . "product_image SET product_id = '" . (int)$product_id . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "', video_in_product = '" . $this->db->escape($img_video_in_product) . "'");
+		]]></add>	
+	</operation>
+  </file>
+  
+  <file path="admin/language/*/catalog/product.php">
+		<operation error="skip">
+			<search><![CDATA[<?php]]></search>
+			<add position="after"><![CDATA[$_['entry_video_in_product']       = 'Введите ссылку на видео';
+		]]></add>
+		</operation>
+  </file>
+
+  <file path="admin/controller/catalog/product.php">
+	<operation error="skip">
+		<search><![CDATA[$data['entry_sort_order'] = $this->language->get('entry_sort_order');]]></search>
+		<add position="after"><![CDATA[$data['entry_video_in_product'] = $this->language->get('entry_video_in_product');]]></add>
+	</operation>
+	<operation error="skip">
+		<search><![CDATA['thumb'      => $this->model_tool_image->resize($thumb, 100, 100),]]></search>
+		<add position="after"><![CDATA['video_in_product' => $product_image['video_in_product'],]]></add>
+	</operation>
+ </file>
+  
+  <file path="admin/view/template/catalog/product_form.tpl">
+	<operation error="skip">
+		<search><![CDATA[<td class="text-left"><?php echo $entry_image; ?></td>]]></search>
+		<add position="after"><![CDATA[<td class="text-right">Youtube Video - <img src="/admin/view/image/video_in_product.jpg"></td>]]></add>
+	</operation>
+	<operation error="skip">
+		<search><![CDATA[<td class="text-left"><a href="" id="thumb-image<?php echo $image_row; ?>" data-toggle="image" class="img-thumbnail"><img src="<?php echo $product_image['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="input-image<?php echo $image_row; ?>" /></td>]]></search>
+		<add position="after"><![CDATA[<td class="text-right"><input type="text" name="product_image[<?php echo $image_row; ?>][video_in_product]" value="<?php echo $product_image['video_in_product']; ?>" placeholder="<?php echo $entry_video_in_product; ?>" class="form-control" /></td>]]></add>
+	</operation>
+	<operation error="skip">
+		<search><![CDATA[html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';]]></search>
+		<add position="after"><![CDATA[html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][video_in_product]" value="" placeholder="Введите ссылку на видео" class="form-control" /></td>';]]></add>
+	</operation>
+  </file>
+
+  <file path="catalog/controller/product/product.php">
+  	<operation error="skip">
+		<search><![CDATA['popup' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),]]></search>
+		<add position="after"><![CDATA[
+		'video_in_product' => $result['video_in_product'],
+		'video_in_product_width' => $this->config->get('config_image_additional_width'),
+		'video_in_product_height' => $this->config->get('config_image_additional_height'),
+		]]></add>
+	</operation>
+  </file>
+
+  <file path="catalog/view/theme/*/template/product/product.tpl">
+	<operation error="skip">
+		<search><![CDATA[<li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>]]></search>
+		<add position="replace"><![CDATA[        
+			<?php if ($image['video_in_product']) { ?>
+				<?php if ($image['thumb']) { ?>
+					<li class="image-additional"><a class="thumbnail mfp-iframe" href="http://www.youtube.com/watch?v=<?php echo $image['video_in_product']; ?>"><span></span><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+				<?php } else { ?>
+					<li class="image-additional"><a class="thumbnail mfp-iframe" href="http://www.youtube.com/watch?v=<?php echo $image['video_in_product']; ?>"><span></span><img style="height:<?php echo $image['video_in_product_height']; ?>px;max-width: none;" src="http://i4.ytimg.com/vi/<?php echo $image['video_in_product']; ?>/hqdefault.jpg" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+				<?php } ?>
+			<?php } else { ?>
+				<li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+			<?php } ?>
+		]]></add>
+	</operation>
+  </file>
+  
+  <file path="catalog/view/theme/*/template/common/header.tpl">
+	<operation error="skip">
+	      <search><![CDATA[</head>]]></search>
+	      <add position="before"><![CDATA[
+			<style>
+				.image-additional {max-width: none;}
+				.image-additional .mfp-iframe{position: relative;}
+				.image-additional .mfp-iframe span {background-image: url(/catalog/view/theme/default/image/play.png);background-repeat: no-repeat;width: 100%;height: 100%;margin: -5px;position: absolute;z-index: 10;background-size: 50px;background-position: 50%;opacity: 0.8;-moz-transition: all ease 0.3s;-webkit-transition: all ease-in-out 0.3s;transition: all ease-in-out 0.3s;-o-transition: all ease 0.3s;-MS-transition: all ease 0.3s;}
+				.image-additional .mfp-iframe:hover span {opacity: 0;-moz-transition: all ease 0.3s;-webkit-transition: all ease-in-out 0.3s;transition: all ease-in-out 0.3s;-o-transition: all ease 0.3s;-MS-transition: all ease 0.3s;}
+			</style>
+		]]></add>
+	</operation>
+  </file>
+	
+</modification>
